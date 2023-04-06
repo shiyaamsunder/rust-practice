@@ -1,12 +1,18 @@
 mod exs;
 
-use exs::ex1;
-use exs::utils;
+use exs::ex1::Ex1;
+use exs::utils::Utils;
 
 fn main() {
-    utils::printwoln("Enter a number: ");
-    let x: u32 = utils::input().expect("Entered number is not an integer");
-    let result = ex1::odd_or_even(&x);
+    Utils::printwoln("Enter a number: ");
+    let x: i32 = Utils::input().expect("Entered number is not an integer");
 
-    println!("Entered number is {}", result.to_lowercase());
+    // let result = Ex1::fibonacci(x).unwrap_or_else(|err| {
+    //     println!("Error: {err}");
+    //     process::exit(0);
+    // });
+
+    let result = Ex1::armstrong(x);
+
+    println!("{result}");
 }
